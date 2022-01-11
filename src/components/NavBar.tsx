@@ -3,7 +3,7 @@ import { Nav } from '@douyinfe/semi-ui';
 import { IconList, IconEdit } from '@douyinfe/semi-icons';
 import { useNavigate } from 'react-router-dom';
 
-export function NavBar() {
+export const NavBar: React.FC = () => {
     const navigate = useNavigate();
     return (
         <div style={{ width: '100%' }}>
