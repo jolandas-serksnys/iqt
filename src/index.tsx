@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { List } from './components/List';
+import { Create } from './components/Create';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<List />}></Route>
+      <Route path="list" element={<List />}></Route>
+      <Route path="create" element={<Create />}></Route>
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
