@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PostService from '../services/PostService';
 import IPost from '../types/IPost';
-import { NavBar } from "./NavBar"
+import { NavBar } from "../components/NavBar"
 import { Avatar, Breadcrumb, Card, Layout, List } from '@douyinfe/semi-ui';
 import Text from '@douyinfe/semi-ui/lib/es/typography/text';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ export const PostList: React.FC = () => {
 
     return (
         <Layout>
-            <NavBar></NavBar>
+            <NavBar/>
             <Layout.Content
                 style={{
                     padding: '24px',
@@ -40,7 +40,10 @@ export const PostList: React.FC = () => {
                     style={{
                         marginBottom: '24px'
                     }}
-                    routes={['Posts list']} 
+                    routes={[{
+                        href: '/',
+                        name: 'Posts list'
+                    }]} 
                 />
                 <List 
                     grid={{

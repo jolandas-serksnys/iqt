@@ -3,19 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { PostList } from './components/PostList';
-import { PostCreate } from './components/PostCreate';
-import { PostView } from './components/PostView';
+import { PostList } from './views/PostList';
+import { PostCreate } from './views/PostCreate';
+import { PostView } from './views/PostView';
+
+import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB';
+import { LocaleProvider } from '@douyinfe/semi-ui';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<PostList />}></Route>
-      <Route path="list" element={<PostList />}></Route>
-      <Route path="create" element={<PostCreate />}></Route>
-      <Route path="post/:id" element={<PostView />}></Route>
-    </Routes>
-  </BrowserRouter>,
+  <LocaleProvider locale={en_GB}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PostList />}></Route>
+        <Route path="list" element={<PostList />}></Route>
+        <Route path="create" element={<PostCreate />}></Route>
+        <Route path="post/:id" element={<PostView />}></Route>
+      </Routes>
+    </BrowserRouter>
+  </LocaleProvider>,
   document.getElementById('root')
 );
 
