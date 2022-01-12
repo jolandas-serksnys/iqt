@@ -9,6 +9,7 @@ import { PostView } from './views/PostView';
 
 import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB';
 import { LocaleProvider } from '@douyinfe/semi-ui';
+import { Error404 } from './views/Error404';
 
 ReactDOM.render(
   <LocaleProvider locale={en_GB}>
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Route path="list" element={<PostList />}></Route>
         <Route path="create" element={<PostCreate />}></Route>
         <Route path="post/:id" element={<PostView />}></Route>
+        <Route path='*' element={<Error404 />}></Route>
       </Routes>
     </BrowserRouter>
   </LocaleProvider>,

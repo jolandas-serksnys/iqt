@@ -7,13 +7,10 @@ export const PostCreate: React.FC = () => {
     const handleSubmit = (formValues: any) => {
         PostService.create(formValues)
         .then((response: any) => {
-            //setPosts(response.data);
-            console.log(response.data);
             Toast.info('Post has been succesfully created');
         })
         .catch((e: Error) => {
-            console.log(e);
-            Toast.error('An error has occured');
+            Toast.error(e.message);
         })
         
     };

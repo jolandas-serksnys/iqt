@@ -20,7 +20,7 @@ export const PostView: React.FC = (props) => {
                 setPost(response.data);
             })
             .catch((e: Error) => {
-                Toast.error('An error has occured trying to load the post.');
+                Toast.error(e.message);
                 navigate('/');
             });
         }
