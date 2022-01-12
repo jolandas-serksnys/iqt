@@ -40,13 +40,13 @@ export const PostView: React.FC = (props) => {
                     routes={['Posts list', '' + post?.title]} />
                     <Card
                         headerLine={ false }
-                        cover={ 
-                            <img 
-                                alt="example" 
-                                src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/card-cover-docs-demo.jpeg" 
-                                
-                                style={{ maxHeight: 360 }}
-                            />
+                        cover={
+                            <div style={{
+                                backgroundImage: 'url("https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/card-cover-docs-demo.jpeg")',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                height: 300
+                            }}></div>
                         }
                         header={
                             <Card.Meta 
