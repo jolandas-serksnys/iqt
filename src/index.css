@@ -39,3 +39,24 @@ textarea {
 html, body, #root, .semi-layout {
   min-height: 100vh !important;
 }
+
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.page .error-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcrumbs {
+  margin-bottom: 24px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px
+}

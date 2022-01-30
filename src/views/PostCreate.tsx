@@ -1,7 +1,6 @@
-import { Layout, Breadcrumb, Form, Button, Toast } from '@douyinfe/semi-ui';
+import { Breadcrumb, Form, Button, Toast } from '@douyinfe/semi-ui';
 import React from 'react';
 import PostService from '../services/PostService';
-import { NavBar } from "../components/NavBar"
 
 export const PostCreate: React.FC = () => {
     const handleSubmit = (formValues: any) => {
@@ -11,45 +10,31 @@ export const PostCreate: React.FC = () => {
         })
         .catch((e: Error) => {
             Toast.error(e.message);
-        })
-        
+        });
     };
 
     return (
-        <Layout>
-            <NavBar/>
-            <Layout.Content
-                style={{
-                    padding: '24px',
-                    backgroundColor: 'var(--semi-color-bg-0)'
-                }}>
-                    <Breadcrumb
-                        style={{
-                            marginBottom: '24px'
-                        }}
-                        routes={[{
-                            href: '/',
-                            name: 'Posts list'
-                        }, {
-                            name: 'Create a Post'
-                        }]}
-                    />
-                    <div style={{
-                       display: 'flex',
-                       justifyContent: 'center'
-                    }}>
-                        <Form onSubmit={values => handleSubmit(values)} style={{width: 600}}>
-                            {({formState, values, formApi}) => (
-                                <>
-                                    <Form.InputNumber field='userId' label='User ID' style={{ width: '100%' }} placeholder='User ID' min={1} required/>
-                                    <Form.Input field='title' label='Title' style={{ width: '100%' }} placeholder='Enter title' required/>
-                                    <Form.TextArea field='body' label='Body' style={{ width: '100%' }} placeholder='Enter body' required/>
-                                    <Button size='large' theme='solid' type='primary' htmlType='submit' style={{ marginRight:8 }}>Submit</Button>
-                                </>
-                            )}
-                        </Form>
-                   </div>
-                </Layout.Content>
-        </Layout>
+        <>
+        <Breadcrumb
+            routes={[{
+                name: 'Posts list'
+            }, {
+                name: 'Create a Post'
+            }]}
+
+            className='breadcrumbs'
+        />
+        <div className='page'>
+            <Form onSubmit={handleSubmit} style={{width: 600}}>
+                {({formState, values, formApi}) => (
+                    <>
+                        <Form.Input field='title' label='Title' style={{ width: '100%' }} placeholder='Enter title' required/>
+                        <Form.TextArea field='body' label='Body' style={{ width: '100%' }} placeholder='Enter body' required/>
+                        <Button size='large' theme='solid' type='primary' htmlType='submit' style={{ marginRight:8 }}>Submit</Button>
+                    </>
+                )}
+            </Form>
+        </div>
+        </>
     )
 }
